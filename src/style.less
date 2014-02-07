@@ -1,8 +1,26 @@
 @import "../public/bootstrap/variables.less";
 
+@icon-font-path: "../content/fonts/";
 
 @text-color: @gray-light;
+
+@border-radius-base: 0;
+@border-radius-large: 0;
+@border-radius-small: 0;
+
 @navbar-height: 30px;
+@navbar-default-color: @gray-lighter;
+@navbar-default-link-color: @navbar-default-color;
+@navbar-default-bg: @gray-dark;
+@navbar-default-border: @navbar-default-bg;
+@navbar-default-link-hover-color: @navbar-default-link-color;
+@navbar-default-link-hover-bg: @gray;
+
+@dropdown-bg: @gray-dark;
+@dropdown-link-color: @gray-lighter;
+@dropdown-divider-bg: @gray;
+@dropdown-link-hover-bg: @gray-darker;
+@dropdown-link-hover-color: @dropdown-link-color;
 
 @nav-tabs-active-link-bg: rgb(39, 40, 34);
 @nav-tabs-border-color: @gray;
@@ -15,6 +33,14 @@
 
 @sidebar-size-left: 300px;
 
+#titleBarNavbar {
+	-webkit-app-region: drag;
+	-webkit-user-select: none;
+	a {
+		-webkit-app-region: no-drag;	
+	}
+}
+
 html, body {
 	height: 100%;
 }
@@ -23,8 +49,12 @@ html, body {
 	margin-bottom: 0;
 }
 
+#mainMenuNavbar {
+	margin-top: @navbar-height;
+}
+
 body {
-	padding-top: @navbar-height;
+	padding-top: @navbar-height * 2;
 	padding-bottom: @navbar-height;
 }
 

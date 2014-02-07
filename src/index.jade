@@ -5,8 +5,21 @@ html
 		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', type='text/javascript')
 		script(src='http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ace.js', type='text/javascript', charset='utf-8')
 		script(src='../content/scripts/bootstrap.js', type='text/javascript')
+		script(src='../lib/index.js', type='text/javascript')
 		link(rel='stylesheet', href='style.css')
 	body
+		.navbar.navbar-default.navbar-fixed-top#titleBarNavbar
+			.container-fluid
+				.navbar-header
+					.navbar-brand Editor
+				ul.nav.navbar-nav.navbar-right
+					li: a#appMinimizeButton(href="#")
+						span.glyphicon.glyphicon-minus
+					li: a#appMaximizeButton(href="#")
+						span.glyphicon.glyphicon-plus
+					li: a#appCloseButton(href="#")
+						span.glyphicon.glyphicon-remove
+
 		.navbar.navbar-default.navbar-fixed-top#mainMenuNavbar
 			.container-fluid
 				ul.nav.navbar-nav.navbar-left
@@ -20,6 +33,9 @@ html
 							li.divider
 							li: a(href="#") Exit
 
+				ul.nav.navbar-nav.navbar-right
+					li#fullScreenToggleButton: a(href="#") Fullscreen
+
 	.rootPane
 		.mdiPaneOuter
 			.mdiPane
@@ -28,7 +44,6 @@ html
 						li.active: a(href="#") File1.txt
 						li: a(href="#") File2.txt
 				.currentFilePane
-					input(type="text")
 					#fileEditor
 					
 

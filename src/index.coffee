@@ -1,30 +1,24 @@
-express = require('express')
-mainRoute = require('./routes/main')
-http = require('http')
-path = require('path')
+gui = require 'nw.gui'
 
-app = express()
+mainWindow = null;
 
-# all environments
-app.set('port', process.env.PORT || 3000)
-app.set('views', path.join(__dirname, '../views'))
-app.set('view engine', 'jade')
-app.use(express.favicon())
-app.use(express.logger('dev'))
-app.use(express.json())
-app.use(express.urlencoded())
-app.use(express.methodOverride())
-app.use(express.cookieParser('your secret here'))
-app.use(express.session())
-app.use(app.router)
-app.use(require('less-middleware')({ src: path.join(__dirname, '../public') }))
-app.use(express.static(path.join(__dirname, '../public')))
+$ ->
+	mainWindow = gui.Window.get()
+	
+	$('#fullScreenToggleButton a').on 'click', ->
+		mainWindow.toggleFullscreen()
 
-# development only
-if 'development' == app.get('env')
-	app.use(express.errorHandler())
+	$('#appCloseButton').on 'click', ->
+		mainWindow.close()
+		return false;
 
-app.get('/', mainRoute.index)
+	$('#appMinimizeButton').on 'click', ->
+		mainWindow.minimize()
+		return false;
 
-http.createServer(app).listen app.get('port'), ->
-	console.log('Express server listening on port ' + app.get('port'))
+	$('#appMaximizeButton').on 'click', ->
+		if screen.availHeight is window.outerHeight
+			mainWindow.restore()
+		else
+			mainWindow.maximize()
+		return false;
