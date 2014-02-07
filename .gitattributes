@@ -1,0 +1,5 @@
+* eol=lf
+*.eot -text
+*.ttf -text
+*.woff -text
+node-webkit/* -text

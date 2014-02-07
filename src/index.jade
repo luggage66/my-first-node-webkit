@@ -1,0 +1,59 @@
+doctype html
+html
+	head
+		title Editor
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', type='text/javascript')
+		script(src='http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ace.js', type='text/javascript', charset='utf-8')
+		script(src='../content/scripts/bootstrap.js', type='text/javascript')
+		link(rel='stylesheet', href='style.css')
+	body
+		.navbar.navbar-default.navbar-fixed-top#mainMenuNavbar
+			.container-fluid
+				ul.nav.navbar-nav.navbar-left
+					li.dropdown
+						a.dropdown-toggle(href='#', data-toggle="dropdown")
+							| File
+							span.caret
+						ul.dropdown-menu
+							li: a(href="#") Open
+							li: a(href="#") Save
+							li.divider
+							li: a(href="#") Exit
+
+	.rootPane
+		.mdiPaneOuter
+			.mdiPane
+				.fileTabPane
+					ul.fileTabs
+						li.active: a(href="#") File1.txt
+						li: a(href="#") File2.txt
+				.currentFilePane
+					input(type="text")
+					#fileEditor
+					
+
+		.sideBar
+			strong.text-muted FILES
+
+			ul.projects
+				.projectFiles
+					ul
+						li.folder
+							| Folder1
+							ul
+								li.file setting.txt
+						li.file file1.txt
+						li.file file2.txt
+
+
+	.navbar.navbar-default.navbar-fixed-bottom
+		.container-fluid
+			ul.nav.navbar-nav.navbar-right
+				li: a(href='#') Line: 1 Column: 1
+
+	script(type="text/javascript")
+		:coffeescript
+			$ ->
+				editor = ace.edit($('#fileEditor').get(0))
+				editor.setTheme("ace/theme/monokai")
+				editor.getSession().setMode("ace/mode/javascript")

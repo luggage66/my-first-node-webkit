@@ -1,0 +1,79 @@
+@import "../public/bootstrap/variables.less";
+
+
+@text-color: @gray-light;
+@navbar-height: 30px;
+
+@nav-tabs-active-link-bg: rgb(39, 40, 34);
+@nav-tabs-border-color: @gray;
+@nav-tabs-active-link-hover-border-color: @gray-light;
+@nav-tabs-active-link-hover-bg: @gray;
+@nav-tabs-active-link-hover-color: @gray-lighter;
+@well-bg: @gray-darker;
+
+@import "../public/bootstrap/bootstrap.less";
+
+@sidebar-size-left: 300px;
+
+html, body {
+	height: 100%;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
+body {
+	padding-top: @navbar-height;
+	padding-bottom: @navbar-height;
+}
+
+.rootPane {
+	height: 100%;
+}
+
+.sideBar {
+	width: @sidebar-size-left;
+	overflow: auto;
+	float: left;
+	height: 100%;
+	margin-left: -100%;
+}
+
+.mdiPaneOuter {
+	height: 100%;
+	overflow: auto;
+	float: left;
+	width: 100%;
+}
+
+.mdiPane {
+	margin-left: @sidebar-size-left;
+	overflow: auto;
+	height: 100%;
+}
+
+.fileTabPane {
+	.well();
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	padding: 5px 5px 0 5px;
+	margin-bottom: 0;
+
+	ul.fileTabs {
+		.nav();
+		.nav-tabs();
+		margin-bottom: 0;
+	}
+}
+
+.currentFilePane {
+	padding-top: 49px;
+	margin-top: -49px;
+	height: 100%;
+	overflow: auto;
+}
+
+#fileEditor {
+	height: 100%;
+}
